@@ -23,6 +23,8 @@ with open(filename) as f:
 				'xlink': 'https://www.google.com/search?q=covid+infection+rate+in+' + row[2],
 				}
 				COVID_rates.append(covid_rate)
+			# The pygal COUNTRIES library does not recognize "Russia" as the country name (along with the common name of several other countries)
+			# Adding Russia manually to COVID_rates
 			if row[2] == 'Russia':
 				covid_rate = {
 				'value': ('ru', int(float((row[4])))),
