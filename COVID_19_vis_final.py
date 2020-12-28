@@ -41,5 +41,6 @@ wm = World(style = wm_style)
 wm.add('< 100000', COVID_rates_1)
 wm.add('< 1000000', COVID_rates_2)
 wm.add('>= 1 mil', COVID_rates_3)
-wm.title='Total COVID cases by country'
+# wm.title='Total COVID cases by country as of ' + str(date.today() - timedelta(1))
+wm.title='Total COVID cases by country as of 2020-12-27'
 wm.render_to_file('COVID_vis_final.svg')
