@@ -5,4 +5,12 @@ This visualization pulls the most up-to-date COVID infection rate data (derived 
 
 Although the original code (commented out in COVID_19_vis_final.py) allows for the most recent info to be pulled from an updated CSV file, it is saved here as today's date with matching OWID data for proof of concept. 
 
+# Project Roadmap:
+
+Next steps: 
+  - update the script to automatically pull up-to-date data from the OWID API
+  - refactor code to improve modularity (i.e. create getDict() funtion to streamline the process of building COVID_rates
+
 ![A png rendering of the resultant visualization](images/COVID_vis_final.png)
+
+
