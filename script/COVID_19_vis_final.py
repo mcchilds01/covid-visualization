@@ -3,6 +3,7 @@ import csv
 from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS, RotateStyle
 from pygal.maps.world import COUNTRIES, World 
 from datetime import date, timedelta
+from country_codes import get_country_code
 from createDict import createDict
 
 filename = 'owid-covid-data.csv'
