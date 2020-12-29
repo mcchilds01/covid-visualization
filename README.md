@@ -9,7 +9,6 @@ Although the original code (commented out in COVID_19_vis_final.py) allows for t
 
 Next steps: 
   - update the script to automatically pull up-to-date data from the OWID API
-  - refactor code to improve modularity (i.e. create getDict() funtion to streamline the process of building COVID_rates
 
 ![A png rendering of the resultant visualization](images/COVID_vis_final.png)
 
