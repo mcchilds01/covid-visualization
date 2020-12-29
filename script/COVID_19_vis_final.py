@@ -3,7 +3,7 @@ import csv
 from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS, RotateStyle
 from pygal.maps.world import COUNTRIES, World 
 from datetime import date, timedelta
-from country_codes import get_country_code
+from createDict import createDict
 
 filename = 'owid-covid-data.csv'
 with open(filename) as f:
@@ -14,24 +14,15 @@ with open(filename) as f:
 		# This allows the program to pull the most recent data from OWID, provided the CSV file is updated
 		# if row[3] == str(date.today() - timedelta(1)):
 		# For the purpose of testing against the data in this repo, changed to this:
-		if row[3] == '2020-12-27':
+		if row[3] == str(date.today() - timedelta(1)):
 			code = get_country_code(row[2])
 			if code: 
-				covid_rate = { 
-				'value': (code, int(float((row[4])))),
-				'label': code,
-				'xlink': 'https://www.google.com/search?q=covid+infection+rate+in+' + row[2],
-				}
-				COVID_rates.append(covid_rate)
-			# The pygal COUNTRIES library does not recognize "Russia" as the country name (along with the common name of several other countries)
-			# Adding Russia manually to COVID_rates
+				COVID_rates.append(createDict(code, row[2], row[4]))
 			if row[2] == 'Russia':
-				covid_rate = {
-				'value': ('ru', int(float((row[4])))),
-				'label': 'ru',
-				'xlink': 'https://www.google.com/search?q=covid+infection+rate+in+Russia',
-				}
-				COVID_rates.append(covid_rate)
+				# The pygal COUNTRIES library does not recognize "Russia" as the country name (along with the common name of several other countries)
+				# Adding Russia manually to COVID_rates
+				code = 'ru'
+				COVID_rates.append(createDict(code, row[2], row[4]))
 
 
 COVID_rates_1 = [i for i in COVID_rates if i['value'][1] < 100000]
