@@ -15,7 +15,7 @@ with open(filename) as f:
 		# This allows the program to pull the most recent data from OWID, provided the CSV file is updated
 		# if row[3] == str(date.today() - timedelta(1)):
 		# For the purpose of testing against the data in this repo, changed to this:
-		if row[3] == str(date.today() - timedelta(1)):
+		if row[3] == '2020-12-27':
 			code = get_country_code(row[2])
 			if code: 
 				COVID_rates.append(createDict(code, row[2], row[4]))
