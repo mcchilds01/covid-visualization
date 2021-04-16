@@ -4,10 +4,10 @@ from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS, RotateSt
 from pygal.maps.world import COUNTRIES, World 
 from datetime import date, timedelta
 from country_codes import get_country_code
-# import cairosvg
+import cairosvg
 from createDict import createDict
 
-filename = 'owid-covid-data.csv'
+filename = '/Users/matthewchilds/Desktop/owid-covid-data.csv'
 with open(filename) as f:
 	reader = csv.reader(f)
 	header_row = next(reader)
@@ -46,4 +46,4 @@ if len(COVID_rates_5) > 1:
 # wm.title='Total COVID cases by country as of ' + str(date.today() - timedelta(1))
 wm.title='Total COVID cases by country as of ' + str(date.today() - timedelta(1))
 wm.render_to_file('COVID_vis_final.svg')
-# cairosvg.svg2png(url='COVID_vis_final.svg', write_to="'COVID_vis_final.png")
+# cairosvg.svg2png(url='COVID_vis_final.svg', write_to="COVID_vis_final.png")
