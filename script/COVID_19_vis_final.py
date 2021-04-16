@@ -30,8 +30,10 @@ COVID_rates_1 = [i for i in COVID_rates if i['value'][1] < 100000]
 COVID_rates_2 = [country for country in COVID_rates if country['value'][1] < 1000000] 
 COVID_rates_3 = [country for country in COVID_rates if country['value'][1] >= 1000000]
 
+customstyle = Style(colors=('#008000', '#FFFF00', '#FF9633', '#FF0000', '#800080' ))
+
 wm_style = RotateStyle('#336699', base_style = LCS)
-wm = World(style = wm_style)
+wm = World(style = customestyle)
 wm.add('< 100000', COVID_rates_1)
 wm.add('< 1000000', COVID_rates_2)
 wm.add('>= 1 mil', COVID_rates_3)
